@@ -7,13 +7,15 @@ import Box from './Box';
 const StyleText = styled(Box)`
     font-size: ${({ fontSize }) => fontSize || '14px'};
     text-align: ${({ textAlign }) => textAlign || 'left'};
+    font-style: ${({ fontStyle }) => fontStyle || 'normal'};
     color: ${({ color }) => color || '#E4B392'};
 `;
 
-const Text = ({ fontSize, color, textAlign, lang, children, ...props }) => {
+const Text = ({ fontSize, fontStyle, color, textAlign, lang, children, ...props }) => {
     return (
         <StyleText
             fontSize={fontSize}
+            fontStyle={fontStyle}
             textAlign={textAlign}
             color={color}
             lang={lang}
@@ -26,6 +28,7 @@ const Text = ({ fontSize, color, textAlign, lang, children, ...props }) => {
 
 Text.propTypes = {
     fontSize: PropTypes.string,
+    fontStyle: PropTypes.string,
     textAlign: PropTypes.string,
     color: PropTypes.string,
     lang: PropTypes.string,

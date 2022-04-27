@@ -22,7 +22,7 @@ const Header = () => {
             borderBottom="1px solid #E4B392"
         >
             <Flex justify="space-between" height="50px">
-                <Text fontSize="24px" padding="12px">
+                <Text fontSize="24px" fontStyle="italic" padding="12px">
                     {content.header.title}
                 </Text>
                 <Flex>
