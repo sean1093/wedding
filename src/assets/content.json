@@ -5,6 +5,22 @@
         "register": "Register"
     },
     "register": {
+        "content": {
+            "title_name": "您的姓名:",
+            "title_relation": "與新人的關係:",
+            "title_join": "是否參加:",
+            "title_invite": "是否需要喜帖:",
+            "relation_0": "男方親戚",
+            "relation_1": "男方同學/朋友",
+            "relation_2": "女方親戚",
+            "relation_3": "女方同學/朋友",
+            "relation_4": "共同好友",
+            "join_yes": "到場參加",
+            "join_no": "不克參加",
+            "invite_0": "需要紙本",
+            "invite_1": "只需要電子喜帖",
+            "invite_2": "不需要喜帖"
+        },
         "action": {
             "previous": "< 上一頁",
             "next": "下一頁 >",
