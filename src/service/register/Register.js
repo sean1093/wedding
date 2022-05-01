@@ -16,13 +16,8 @@ import FlowerImage3 from '../../assets/images/flower-3.png';
 
 const Register = () => {
     const [page, setPage] = useState(0);
-    const [answer, setAnswer] = useState({
-        name: '',
-        relation: 0,
-        join: true,
-        invite: 0
-    });
-    console.log(answer, '----answer');
+    const [answer, setAnswer] = useState({});
+
     return (
         <>
             <Header />
@@ -53,7 +48,9 @@ const Register = () => {
 
             </Flex>
             <Action
+                answer={answer}
                 page={page}
+                setAnswer={setAnswer}
                 updatePage={setPage}
             />
         </>
