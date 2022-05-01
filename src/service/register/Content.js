@@ -57,7 +57,7 @@ const Content = ({ page, answer, setAnswer }) => {
         name,
         relation,
         join,
-        invite,
+        invitation,
         people,
         vegetarian,
         child,
@@ -114,8 +114,8 @@ const Content = ({ page, answer, setAnswer }) => {
                             </InputTitle>
                             <Box width="250px">
                                 <Select
-                                    name="invite"
-                                    value={INVITE.find(r => r.value === invite)}
+                                    name="invitation"
+                                    value={INVITE.find(r => r.value === invitation)}
                                     options={INVITE}
                                     onChange={onSelect}
                                 />
@@ -198,8 +198,16 @@ const Content = ({ page, answer, setAnswer }) => {
             {
                 page === 3 && (
                     <InputBlock>
-                        <Text>{content.register.content.final_content}</Text>
+                        <Text fontSize="24px" padding="12px">{content.register.content.final_content}</Text>
                     </InputBlock>
+                )
+            }
+            {
+                page === 4 && (
+                    <Flex direction="column">
+                        <Text fontSize="24px" padding="12px">{content.register.content.error_title}</Text>
+                        <Text fontSize="16px" padding="12px">{content.register.content.error_content}</Text>
+                    </Flex>
                 )
             }
         </Flex>
