@@ -52,6 +52,10 @@ export const INVITE = [
 
 export const PEOPLE = [
     {
+        label: 0,
+        value: 0
+    },
+    {
         label: 1,
         value: 1
     },
@@ -79,6 +83,10 @@ export const PEOPLE = [
 
 export const VEGETARIAN = [
     {
+        label: 0,
+        value: 0
+    },
+    {
         label: 1,
         value: 1
     },
@@ -105,6 +113,10 @@ export const VEGETARIAN = [
 ];
 
 export const CHILD = [
+    {
+        label: 0,
+        value: 0
+    },
     {
         label: 1,
         value: 1

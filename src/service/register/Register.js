@@ -45,7 +45,6 @@ const Register = () => {
                         }
                     </Flex>
                 </Box>
-
             </Flex>
             <Action
                 answer={answer}

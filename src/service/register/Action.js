@@ -5,6 +5,7 @@ import Flex from '../../components/Flex';
 import Box from '../../components/Box';
 import { ActionButton, NormalButton, LinkButton } from '../../components/Button';
 
+import { postRequest } from '../../utils/httpService';
 import content from '../../assets/content.json';
 import { useEffect, useState } from 'react';
 
@@ -28,14 +29,14 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
             name,
             relation,
             join,
-            invite,
+            invitation,
             people,
             vegetarian,
             child,
             tel
         } = answer;
         if (page === 0) {
-            enableNextButton = (!isEmpty(name) && !isEmpty(relation) && !isEmpty(join) && !isEmpty(invite)) || false;
+            enableNextButton = (!isEmpty(name) && !isEmpty(relation) && !isEmpty(join) && !isEmpty(invitation)) || false;
         } else if (page === 1) {
             enableNextButton = (!isEmpty(people) && !isEmpty(vegetarian) && !isEmpty(child) && tel?.length === 10) || false;
         }
@@ -71,13 +72,21 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                 }
                 {
                     page === 2 && (
-                        <NormalButton onClick={() => { updatePage(++page); }}>
+                        <NormalButton
+                            onClick={async () => {
+                                updatePage(++page);
+                                const result = await postRequest({ data: answer });
+                                if (result?.status === 500) {
+                                    updatePage(4);
+                                }
+                            }}
+                        >
                             {content.register.action.button_finish}
                         </NormalButton>
                     )
                 }
                 {
-                    page === 3 && (
+                    (page === 3 || page === 4) && (
                         <Flex>
                             <LinkButton to="/">
                                 {content.register.action.button_home}
