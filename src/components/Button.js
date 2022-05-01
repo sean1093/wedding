@@ -4,8 +4,9 @@ import Box from './Box';
 
 const BaseButton = styled(Box)`
     &:hover {
-        cursor: pointer;
+        cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};;
     }
+    color: ${({ disabled }) => disabled ? '#DFDFDF' : 'black'};
     padding: 4px;
     text-align: center;
     width: 108px;
