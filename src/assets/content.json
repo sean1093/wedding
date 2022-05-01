@@ -1,15 +1,21 @@
 {
     "header": {
         "title": "Sean & Coco",
-        "home": "Home",
-        "register": "Register"
+        "home": "回主頁",
+        "register": "填寫出席表單"
     },
     "register": {
         "content": {
             "title_name": "您的姓名:",
             "title_relation": "與新人的關係:",
             "title_join": "是否參加:",
-            "title_invite": "是否需要喜帖:",
+            "title_invitation": "是否需要喜帖:",
+            "title_people": "出席人數:",
+            "title_vegetarian": "素食人數:",
+            "title_child": "兒童椅數量:",
+            "title_tel": "聯絡電話:",
+            "title_tel_example": "填寫範例: 0922123456",
+            "title_notes": "想說的話:",
             "relation_0": "男方親戚",
             "relation_1": "男方同學/朋友",
             "relation_2": "女方親戚",
@@ -19,7 +25,8 @@
             "join_no": "不克參加",
             "invite_0": "需要紙本",
             "invite_1": "只需要電子喜帖",
-            "invite_2": "不需要喜帖"
+            "invite_2": "不需要喜帖",
+            "final_content": "感謝您的填寫！"
         },
         "action": {
             "previous": "< 上一頁",
