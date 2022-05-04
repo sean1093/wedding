@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -20,7 +21,7 @@ import {
 import content from '../../assets/content.json';
 
 const InputBlock = styled(Flex)`
-    padding: 28px 8px;
+    padding: ${({ padding }) => padding || '28px 8px'};
 
     @media (max-width: 576px) {
         flex-direction: column;
@@ -36,13 +37,14 @@ const InputTitle = styled(Box)`
 `;
 
 const Content = ({ page, answer, setAnswer }) => {
+    const [validName, setValidName] = useState(true);
 
     const onSelect = (newValue, actionMeta) => {
         const { name } = actionMeta;
         setAnswer({
             ...answer,
             [name]: newValue?.value
-        })
+        });
     };
 
     const onInput = (e) => {
@@ -50,8 +52,19 @@ const Content = ({ page, answer, setAnswer }) => {
         setAnswer({
             ...answer,
             [name]: value
-        })
-    }
+        });
+    };
+
+    const onInputName = (e) => {
+        const { name, value } = e?.target;
+        const formattedValue = value?.trim();
+
+        setValidName(!(formattedValue.length === 0));
+        setAnswer({
+            ...answer,
+            [name]: formattedValue
+        });
+    };
 
     const {
         name,
@@ -69,7 +82,7 @@ const Content = ({ page, answer, setAnswer }) => {
             {
                 page === 0 && (
                     <>
-                        <InputBlock>
+                        <InputBlock padding={validName ? '28px 8px' : '28px 8px 11px'}>
                             <InputTitle>
                                 {content.register.content.title_name}
                             </InputTitle>
@@ -78,8 +91,12 @@ const Content = ({ page, answer, setAnswer }) => {
                                     name="name"
                                     value={name}
                                     width="250px"
-                                    onChange={onInput}
+                                    onChange={onInputName}
+                                    borderColor={validName ? '#cccccc' : 'red'}
                                 />
+                                {
+                                    !validName && <Text color="red">{content.register.validation.invalid_name}</Text>
+                                }
                             </Box>
                         </InputBlock>
                         <InputBlock>
