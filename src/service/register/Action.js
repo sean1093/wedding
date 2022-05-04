@@ -22,6 +22,7 @@ const isEmpty = (str) => str === null || str === undefined || str === '';
 
 const Action = ({ answer, page, setAnswer, updatePage }) => {
     const [isEnableNextButton, setIsEnableNextButton] = useState(false);
+    const { join } = answer;
 
     useEffect(() => {
         let enableNextButton = false;
@@ -49,7 +50,13 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                 <Box>
                 { 
                     (page === 1 || page === 2) && (
-                        <ActionButton onClick={() => { updatePage(--page); }}>
+                        <ActionButton onClick={() => {
+                            if (!join && page === 2) {
+                                updatePage(0);
+                            } else {
+                                updatePage(--page);
+                            }
+                        }}>
                             {content.register.action.previous}
                         </ActionButton>
                     )
@@ -62,7 +69,11 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                             disabled={!isEnableNextButton}
                             onClick={() => {
                                 if (isEnableNextButton) {
-                                    updatePage(++page);
+                                    if (!join && page === 0) {
+                                        updatePage(2);
+                                    } else {
+                                        updatePage(++page);
+                                    }
                                 }
                             }}
                         >

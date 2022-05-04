@@ -165,7 +165,13 @@ const Content = ({ page, answer, setAnswer }) => {
                                     onChange={onSelect}
                                 />
                             </Box>
-                        </InputBlock>
+                        </InputBlock>          
+                    </>
+                )
+            }
+            {
+                page === 2 && (
+                    <>
                         <InputBlock>
                             <InputTitle>
                                 {content.register.content.title_tel}
@@ -179,20 +185,16 @@ const Content = ({ page, answer, setAnswer }) => {
                                     onChange={onInput}
                                 />
                             </Box>
-                        </InputBlock>              
-                    </>
-                )
-            }
-            {
-                page === 2 && (
-                    <InputBlock>
-                        <InputTitle>
-                            {content.register.content.title_notes}
-                        </InputTitle>
-                        <Box>
-                            <StyleTextarea width="270px" height="200px" onChange={onInput} name="notes"/>
-                        </Box>
-                    </InputBlock>      
+                        </InputBlock>    
+                        <InputBlock>
+                            <InputTitle>
+                                {content.register.content.title_notes}
+                            </InputTitle>
+                            <Box>
+                                <StyleTextarea width="270px" height="200px" onChange={onInput} name="notes"/>
+                            </Box>
+                        </InputBlock>
+                    </>      
                 )
             }
             {
