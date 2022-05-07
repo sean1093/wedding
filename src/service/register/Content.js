@@ -27,24 +27,31 @@ const InputBlock = styled(Flex)`
 
     @media (max-width: 576px) {
         flex-direction: column;
+        padding: 16px 8px;
     }
 `;
 
 const InputTitle = styled(Box)`
-    width: 150px;
+    width: 200px;
 
     @media (max-width: 576px) {
         padding-bottom: 8px;
     }
 `;
 
-const ValidationInput = ({ keyValue, value, validationFlag, validationWarning, onInput }) => {
+const ValidationInput = ({
+    keyValue,
+    value,
+    validationFlag,
+    validationWarning,
+    onInput
+}) => {
     return (
         <>
             <Input
                 name={keyValue}
                 value={value}
-                width="250px"
+                width="270px"
                 onChange={onInput}
                 borderColor={validationFlag ? '#cccccc' : 'red'}
             />
@@ -53,6 +60,13 @@ const ValidationInput = ({ keyValue, value, validationFlag, validationWarning, o
             }
         </>
     );
+};
+ValidationInput.propTypes = {
+    keyValue: PropTypes.string.isRequired,
+    value: PropTypes.string,
+    validationFlag: PropTypes.bool.isRequired,
+    validationWarning: PropTypes.string.isRequired,
+    onInput: PropTypes.func.isRequired
 };
 
 const Content = ({ page, answer, setAnswer }) => {
@@ -100,6 +114,7 @@ const Content = ({ page, answer, setAnswer }) => {
         relation,
         join,
         invitation,
+        address,
         people,
         vegetarian,
         child,
@@ -115,7 +130,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_name}
                             </InputTitle>
-                            <Box>
+                            <Box width="270px">
                                 <ValidationInput
                                     keyValue="name"
                                     value={name}
@@ -129,7 +144,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_relation}
                             </InputTitle>
-                            <Box width="250px">
+                            <Box width="270px">
                                 <Select
                                     name="relation"
                                     value={RELATION.find(r => r.value === relation)}
@@ -142,7 +157,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_join}
                             </InputTitle>
-                            <Box width="250px">
+                            <Box width="270px">
                                 <Select
                                     name="join"
                                     value={JOIN.find(r => r.value === join)}
@@ -155,7 +170,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_invitation}
                             </InputTitle>
-                            <Box width="250px">
+                            <Box width="270px">
                                 <Select
                                     name="invitation"
                                     value={INVITE.find(r => r.value === invitation)}
@@ -163,7 +178,20 @@ const Content = ({ page, answer, setAnswer }) => {
                                     onChange={onSelect}
                                 />
                             </Box>
-                        </InputBlock>                   
+                        </InputBlock>
+                        <InputBlock>
+                            <InputTitle>
+                                {content.register.content.title_address}
+                            </InputTitle>
+                            <Box width="270px">
+                                <Input
+                                    name="address"
+                                    value={address}
+                                    width="270px"
+                                    onChange={onInput}
+                                />
+                            </Box>
+                        </InputBlock>                 
                     </>
                 )
             }
@@ -174,7 +202,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_people}
                             </InputTitle>
-                            <Box width="250px">
+                            <Box width="270px">
                                 <Select
                                     name="people"
                                     value={PEOPLE.find(r => r.value === people)}
@@ -187,7 +215,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_vegetarian}
                             </InputTitle>
-                            <Box width="250px">
+                            <Box width="270px">
                                 <Select
                                     name="vegetarian"
                                     value={VEGETARIAN.find(r => r.value === vegetarian)}
@@ -200,7 +228,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_child}
                             </InputTitle>
-                            <Box width="250px">
+                            <Box width="270px">
                                 <Select
                                     name="child"
                                     value={CHILD.find(r => r.value === child)}
@@ -219,7 +247,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_tel}
                             </InputTitle>
-                            <Box width="250px">
+                            <Box width="270px">
                                 <Text>{content.register.content.title_tel_example}</Text>
                                 <ValidationInput
                                     keyValue="tel"
