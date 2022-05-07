@@ -10,6 +10,7 @@
             "title_relation": "與新人的關係:",
             "title_join": "是否參加:",
             "title_invitation": "是否需要喜帖:",
+            "title_address": "喜帖寄送地址或email:",
             "title_people": "出席人數:",
             "title_vegetarian": "素食人數:",
             "title_child": "兒童椅數量:",
@@ -31,7 +32,8 @@
             "error_content": "表單現在發生一些問題，請稍後再試試，如果情況一直發生，請直接聯絡我們，謝謝！"
         },
         "validation": {
-            "invalid_name": "X 姓名不能為空白"
+            "name": "X 姓名不能為空白",
+            "tel": "X 聯絡電話格式錯誤"
         },
         "action": {
             "previous": "< 上一頁",
