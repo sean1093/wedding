@@ -18,6 +18,8 @@ import {
     CHILD
 } from '../../config/register';
 
+import { validateTel } from '../../utils/validation';
+
 import content from '../../assets/content.json';
 
 const InputBlock = styled(Flex)`
@@ -38,6 +40,7 @@ const InputTitle = styled(Box)`
 
 const Content = ({ page, answer, setAnswer }) => {
     const [validName, setValidName] = useState(true);
+    const [validTel, setValidTel] = useState(true);
 
     const onSelect = (newValue, actionMeta) => {
         const { name } = actionMeta;
@@ -60,6 +63,17 @@ const Content = ({ page, answer, setAnswer }) => {
         const formattedValue = value?.trim();
 
         setValidName(!(formattedValue.length === 0));
+        setAnswer({
+            ...answer,
+            [name]: formattedValue
+        });
+    };
+
+    const onInputTel = (e) => {
+        const { name, value } = e?.target;
+        const formattedValue = value?.trim();
+
+        setValidTel(validateTel(formattedValue));
         setAnswer({
             ...answer,
             [name]: formattedValue
@@ -189,7 +203,7 @@ const Content = ({ page, answer, setAnswer }) => {
             {
                 page === 2 && (
                     <>
-                        <InputBlock>
+                        <InputBlock padding={validTel ? '28px 8px' : '28px 8px 11px'}>
                             <InputTitle>
                                 {content.register.content.title_tel}
                             </InputTitle>
@@ -199,8 +213,12 @@ const Content = ({ page, answer, setAnswer }) => {
                                     name="tel"
                                     value={tel}
                                     width="250px"
-                                    onChange={onInput}
+                                    onChange={onInputTel}
+                                    borderColor={validTel ? '#cccccc' : 'red'}
                                 />
+                                {
+                                    !validTel && <Text color="red">{content.register.validation.invalid_tel}</Text>
+                                }
                             </Box>
                         </InputBlock>    
                         <InputBlock>

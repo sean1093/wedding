@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -6,8 +7,8 @@ import Box from '../../components/Box';
 import { ActionButton, NormalButton, LinkButton } from '../../components/Button';
 
 import { postRequest } from '../../utils/httpService';
+import { validateTel } from '../../utils/validation';
 import content from '../../assets/content.json';
-import { useEffect, useState } from 'react';
 
 const Container = styled(Box)`
     position: fixed;
@@ -39,7 +40,9 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
         if (page === 0) {
             enableNextButton = (!isEmpty(name) && !isEmpty(relation) && !isEmpty(join) && !isEmpty(invitation)) || false;
         } else if (page === 1) {
-            enableNextButton = (!isEmpty(people) && !isEmpty(vegetarian) && !isEmpty(child) && tel?.length === 10) || false;
+            enableNextButton = (!isEmpty(people) && !isEmpty(vegetarian) && !isEmpty(child)) || false;
+        } else if (page === 2) {
+            enableNextButton = validateTel(tel);
         }
         setIsEnableNextButton(enableNextButton);
     }, [page, answer]);
@@ -84,6 +87,7 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                 {
                     page === 2 && (
                         <NormalButton
+                            disabled={!isEnableNextButton}
                             onClick={async () => {
                                 updatePage(++page);
                                 const result = await postRequest({ data: answer });
