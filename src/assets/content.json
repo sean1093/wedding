@@ -31,8 +31,8 @@
             "error_content": "表單現在發生一些問題，請稍後再試試，如果情況一直發生，請直接聯絡我們，謝謝！"
         },
         "validation": {
-            "invalid_name": "X 姓名不能為空白",
-            "invalid_tel": "X 聯絡電話格式錯誤"
+            "name": "X 姓名不能為空白",
+            "tel": "X 聯絡電話格式錯誤"
         },
         "action": {
             "previous": "< 上一頁",

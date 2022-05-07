@@ -38,9 +38,33 @@ const InputTitle = styled(Box)`
     }
 `;
 
+const ValidationInput = ({ keyValue, value, validationFlag, validationWarning, onInput }) => {
+    return (
+        <>
+            <Input
+                name={keyValue}
+                value={value}
+                width="250px"
+                onChange={onInput}
+                borderColor={validationFlag ? '#cccccc' : 'red'}
+            />
+            {
+                !validationFlag && <Text color="red">{validationWarning}</Text>
+            }
+        </>
+    );
+};
+
 const Content = ({ page, answer, setAnswer }) => {
     const [validName, setValidName] = useState(true);
     const [validTel, setValidTel] = useState(true);
+
+    const updateAnswerValue = (name, value) => {
+        setAnswer({
+            ...answer,
+            [name]: value
+        });
+    };
 
     const onSelect = (newValue, actionMeta) => {
         const { name } = actionMeta;
@@ -52,10 +76,7 @@ const Content = ({ page, answer, setAnswer }) => {
 
     const onInput = (e) => {
         const { name, value } = e?.target;
-        setAnswer({
-            ...answer,
-            [name]: value
-        });
+        updateAnswerValue(name, value);
     };
 
     const onInputName = (e) => {
@@ -63,10 +84,7 @@ const Content = ({ page, answer, setAnswer }) => {
         const formattedValue = value?.trim();
 
         setValidName(!(formattedValue.length === 0));
-        setAnswer({
-            ...answer,
-            [name]: formattedValue
-        });
+        updateAnswerValue(name, formattedValue);
     };
 
     const onInputTel = (e) => {
@@ -74,10 +92,7 @@ const Content = ({ page, answer, setAnswer }) => {
         const formattedValue = value?.trim();
 
         setValidTel(validateTel(formattedValue));
-        setAnswer({
-            ...answer,
-            [name]: formattedValue
-        });
+        updateAnswerValue(name, formattedValue);
     };
 
     const {
@@ -101,16 +116,13 @@ const Content = ({ page, answer, setAnswer }) => {
                                 {content.register.content.title_name}
                             </InputTitle>
                             <Box>
-                                <Input
-                                    name="name"
+                                <ValidationInput
+                                    keyValue="name"
                                     value={name}
-                                    width="250px"
-                                    onChange={onInputName}
-                                    borderColor={validName ? '#cccccc' : 'red'}
+                                    validationFlag={validName}
+                                    validationWarning={content.register.validation.name}
+                                    onInput={onInputName}
                                 />
-                                {
-                                    !validName && <Text color="red">{content.register.validation.invalid_name}</Text>
-                                }
                             </Box>
                         </InputBlock>
                         <InputBlock>
@@ -209,16 +221,13 @@ const Content = ({ page, answer, setAnswer }) => {
                             </InputTitle>
                             <Box width="250px">
                                 <Text>{content.register.content.title_tel_example}</Text>
-                                <Input
-                                    name="tel"
+                                <ValidationInput
+                                    keyValue="tel"
                                     value={tel}
-                                    width="250px"
-                                    onChange={onInputTel}
-                                    borderColor={validTel ? '#cccccc' : 'red'}
+                                    validationFlag={validTel}
+                                    validationWarning={content.register.validation.tel}
+                                    onInput={onInputTel}
                                 />
-                                {
-                                    !validTel && <Text color="red">{content.register.validation.invalid_tel}</Text>
-                                }
                             </Box>
                         </InputBlock>    
                         <InputBlock>
