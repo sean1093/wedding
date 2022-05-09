@@ -34,6 +34,11 @@ const InputBlock = styled(Flex)`
 const InputTitle = styled(Box)`
     width: 200px;
 
+    &&::after{
+        content: '${props => props.optional ? '' : '*'}';
+        color: red;
+    }
+
     @media (max-width: 576px) {
         padding-bottom: 8px;
     }
@@ -259,7 +264,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             </Box>
                         </InputBlock>    
                         <InputBlock>
-                            <InputTitle>
+                            <InputTitle optional={true}>
                                 {content.register.content.title_notes}
                             </InputTitle>
                             <Box>
