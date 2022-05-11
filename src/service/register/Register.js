@@ -22,7 +22,7 @@ const Register = () => {
         <>
             <Header />
             <Flex height="calc(100vh - 128px)">
-                <Box width="70%" minWidth="200px">
+                <Box width="70%" minWidth="225px">
                     <Content
                         page={page}
                         answer={answer}

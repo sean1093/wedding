@@ -17,7 +17,7 @@ const Header = () => {
     return (
         <Box
             width="100%"
-            minWidth="330px"
+            minWidth="375px"
             height="50px"
             borderBottom="1px solid #E4B392"
         >
