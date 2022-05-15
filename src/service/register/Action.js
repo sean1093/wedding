@@ -32,13 +32,18 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
             relation,
             join,
             invitation,
+            address,
             people,
             vegetarian,
             child,
             tel
         } = answer;
         if (page === 0) {
-            enableNextButton = (!isEmpty(name) && !isEmpty(relation) && !isEmpty(join) && !isEmpty(invitation)) || false;
+            if (invitation === 0 || invitation === 1) {
+                enableNextButton = (!isEmpty(name) && !isEmpty(relation) && !isEmpty(join) && !isEmpty(address)) || false;
+            } else if (invitation === 2) {
+                enableNextButton = (!isEmpty(name) && !isEmpty(relation) && !isEmpty(join) && !isEmpty(invitation)) || false;   
+            }
         } else if (page === 1) {
             enableNextButton = (!isEmpty(people) && !isEmpty(vegetarian) && !isEmpty(child)) || false;
         } else if (page === 2) {
