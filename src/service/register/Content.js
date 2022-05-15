@@ -184,19 +184,28 @@ const Content = ({ page, answer, setAnswer }) => {
                                 />
                             </Box>
                         </InputBlock>
-                        <InputBlock>
-                            <InputTitle>
-                                {content.register.content.title_address}
-                            </InputTitle>
-                            <Box width="270px">
-                                <Input
-                                    name="address"
-                                    value={address}
-                                    width="270px"
-                                    onChange={onInput}
-                                />
-                            </Box>
-                        </InputBlock>                 
+                        {
+                            (invitation === 0 || invitation === 1) && (
+                                <InputBlock>
+                                    <InputTitle>
+                                        {
+                                            invitation === 0 && content.register.content.title_address
+                                        }
+                                        {
+                                            invitation === 1 && content.register.content.title_email
+                                        }
+                                    </InputTitle>
+                                    <Box width="270px">
+                                        <Input
+                                            name="address"
+                                            value={address}
+                                            width="270px"
+                                            onChange={onInput}
+                                        />
+                                    </Box>
+                                </InputBlock> 
+                            )
+                        }                
                     </>
                 )
             }
