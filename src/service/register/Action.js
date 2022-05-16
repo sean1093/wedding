@@ -57,7 +57,7 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
             <Flex justify="space-between" padding="20px 16px">
                 <Box>
                 { 
-                    (page === 1 || page === 2) && (
+                    (page === 1 || page === 2 || page === 3) && (
                         <ActionButton onClick={() => {
                             if (!join && page === 2) {
                                 updatePage(0);
@@ -72,7 +72,7 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                 </Box>
                 <Box>
                 {
-                    (page === 0 || page === 1) && (
+                    (page === 0 || page === 1 || page === 2) && (
                         <ActionButton
                             disabled={!isEnableNextButton}
                             onClick={() => {
@@ -90,14 +90,13 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                     )
                 }
                 {
-                    page === 2 && (
+                    page === 3 && (
                         <NormalButton
-                            disabled={!isEnableNextButton}
                             onClick={async () => {
                                 updatePage(++page);
                                 const result = await postRequest({ data: answer });
                                 if (result?.status === 500) {
-                                    updatePage(4);
+                                    updatePage(5);
                                 }
                             }}
                         >
@@ -106,7 +105,7 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                     )
                 }
                 {
-                    (page === 3 || page === 4) && (
+                    (page === 4) && (
                         <Flex>
                             <LinkButton to="/">
                                 {content.register.action.button_home}
