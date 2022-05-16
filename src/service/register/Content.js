@@ -8,6 +8,7 @@ import Box from '../../components/Box';
 import Input, { StyleTextarea } from '../../components/Input';
 import Flex from '../../components/Flex';
 import Text from '../../components/Text';
+import Image from '../../components/Image';
 
 import {
     RELATION,
@@ -21,6 +22,7 @@ import {
 import { validateTel } from '../../utils/validation';
 
 import content from '../../assets/content.json';
+import ImageMain from '../../assets/images/main.jpeg';
 
 const InputBlock = styled(Flex)`
     padding: ${({ padding }) => padding || '28px 8px'};
@@ -56,7 +58,7 @@ const ValidationInput = ({
             <Input
                 name={keyValue}
                 value={value}
-                width="270px"
+                width="290px"
                 onChange={onInput}
                 borderColor={validationFlag ? '#cccccc' : 'red'}
             />
@@ -123,7 +125,8 @@ const Content = ({ page, answer, setAnswer }) => {
         people,
         vegetarian,
         child,
-        tel
+        tel,
+        notes
     } = answer;
 
     return (
@@ -135,7 +138,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_name}
                             </InputTitle>
-                            <Box width="270px">
+                            <Box width="290px">
                                 <ValidationInput
                                     keyValue="name"
                                     value={name}
@@ -149,7 +152,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_relation}
                             </InputTitle>
-                            <Box width="270px">
+                            <Box width="290px">
                                 <Select
                                     name="relation"
                                     value={RELATION.find(r => r.value === relation)}
@@ -162,7 +165,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_join}
                             </InputTitle>
-                            <Box width="270px">
+                            <Box width="290px">
                                 <Select
                                     name="join"
                                     value={JOIN.find(r => r.value === join)}
@@ -175,7 +178,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_invitation}
                             </InputTitle>
-                            <Box width="270px">
+                            <Box width="290px">
                                 <Select
                                     name="invitation"
                                     value={INVITE.find(r => r.value === invitation)}
@@ -195,11 +198,11 @@ const Content = ({ page, answer, setAnswer }) => {
                                             invitation === 1 && content.register.content.title_email
                                         }
                                     </InputTitle>
-                                    <Box width="270px">
+                                    <Box width="290px">
                                         <Input
                                             name="address"
                                             value={address}
-                                            width="270px"
+                                            width="290px"
                                             onChange={onInput}
                                         />
                                     </Box>
@@ -216,7 +219,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_people}
                             </InputTitle>
-                            <Box width="270px">
+                            <Box width="290px">
                                 <Select
                                     name="people"
                                     value={PEOPLE.find(r => r.value === people)}
@@ -229,7 +232,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_vegetarian}
                             </InputTitle>
-                            <Box width="270px">
+                            <Box width="290px">
                                 <Select
                                     name="vegetarian"
                                     value={VEGETARIAN.find(r => r.value === vegetarian)}
@@ -242,7 +245,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_child}
                             </InputTitle>
-                            <Box width="270px">
+                            <Box width="290px">
                                 <Select
                                     name="child"
                                     value={CHILD.find(r => r.value === child)}
@@ -261,7 +264,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <InputTitle>
                                 {content.register.content.title_tel}
                             </InputTitle>
-                            <Box width="270px">
+                            <Box width="290px">
                                 <Text>{content.register.content.title_tel_example}</Text>
                                 <ValidationInput
                                     keyValue="tel"
@@ -277,7 +280,7 @@ const Content = ({ page, answer, setAnswer }) => {
                                 {content.register.content.title_notes}
                             </InputTitle>
                             <Box>
-                                <StyleTextarea width="270px" height="200px" onChange={onInput} name="notes"/>
+                                <StyleTextarea width="290px" height="200px" onChange={onInput} name="notes"/>
                             </Box>
                         </InputBlock>
                     </>      
@@ -285,15 +288,46 @@ const Content = ({ page, answer, setAnswer }) => {
             }
             {
                 page === 3 && (
-                    <InputBlock>
-                        <Text fontSize="24px" padding="12px">{content.register.content.final_content}</Text>
-                    </InputBlock>
+                    <Flex direction="column">
+                        <Text fontSize="24px" padding="12px">{content.register.content.title_confirm}</Text>
+                        <Box padding="12px">
+                            <Box>{content.register.content.title_name} {name}</Box>
+                            <Box>{content.register.content.title_relation} {RELATION[relation].label}</Box>
+                            <Box>{content.register.content.title_join} {JOIN[join ? 1 : 0].label}</Box>
+                            <Box>{content.register.content.title_invitation} {INVITE[invitation].label}</Box>
+                            {
+                                address && invitation === 0 && <Box>{content.register.content.title_address} {address}</Box>
+                            }
+                            {
+                                address && invitation === 1 && <Box>{content.register.content.title_email} {address}</Box>
+                            }
+                            {
+                                people && <Box>{content.register.content.title_people} {people}</Box>
+                            }
+                            {
+                                vegetarian !== undefined && <Box>{content.register.content.title_vegetarian} {people}</Box>
+                            }
+                            {
+                                child !== undefined && <Box>{content.register.content.title_child} {child}</Box>
+                            }
+                            <Box>{content.register.content.title_tel} {tel}</Box>
+                            <Box>{content.register.content.title_notes} {notes}</Box>
+                        </Box>
+                    </Flex>
                 )
             }
             {
                 page === 4 && (
+                    <InputBlock>
+                        <Text fontSize="20px" padding="12px">{content.register.content.final_content}</Text>
+                        <Image width="280px" src={ImageMain}/>
+                    </InputBlock>
+                )
+            }
+            {
+                page === 5 && (
                     <Flex direction="column">
-                        <Text fontSize="24px" padding="12px">{content.register.content.error_title}</Text>
+                        <Text fontSize="20px" padding="12px">{content.register.content.error_title}</Text>
                         <Text fontSize="16px" padding="12px">{content.register.content.error_content}</Text>
                     </Flex>
                 )
