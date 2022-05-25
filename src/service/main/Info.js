@@ -16,10 +16,6 @@ const StyledImage = styled(Image)`
     bottom: 0;
     width: 100vw;
     max-width: 550px;
-
-    @media (max-width: 768px) {
-        display: none;
-    }
 `;
 
 const StyledMainImage = styled(Image)`
@@ -41,10 +37,10 @@ const StyledMainImage = styled(Image)`
 
     @media (max-width: 768px) {
         position: relative;
-        top: 0px;
+        top: 20px;
         right: 0px;
-        width: 300px;
-        height: 280px;
+        width: 220px;
+        height: 200px;
     }
 `;
 
@@ -89,12 +85,6 @@ const StyledInfoText = styled(Text)`
     }
 `;
 
-const StyledTitle = styled(Text)`
-    @media (max-width: 768px) {
-        font-size: 24px;
-    }
-`;
-
 const StyledTitleEventFirst = styled(Text)`
     @media (max-width: 768px) {
         font-size: 52px;
@@ -112,22 +102,14 @@ const StyledTitleEvent = styled(Text)`
 
 const Info = () => {
     return (
-        <Flex direction="column" minWidth="375px" >
-            <StyledTitle
-                color="black"
-                fontSize="28px"
-                fontStyle="italic"
-                padding="20px"
-            >
-                {content.main.title_name}
-            </StyledTitle>
-            <Flex justify="center" width="100vw">
+        <Flex direction="column" minWidth="375px">
+            <Flex justify="center" width="100vw" minWidth="375px">
                 <StyledBackground />
                 <StyledMainImage src={ImageMain}/>
             </Flex>
-            <InfoSection>
+            <InfoSection minWidth="375px">
                 <Flex direction="column">
-                    <Flex padding="20px">
+                    <Flex padding="30px">
                         <StyledTitleEventFirst color="black" fontSize="72px" fontStyle="italic">
                             {content.main.title_event_first}
                         </StyledTitleEventFirst>
@@ -143,9 +125,9 @@ const Info = () => {
                             {content.main.button_register}
                         </LinkButton>
                     </Flex>
-                    <StyledImage src={FlowerImageMain}/>
                 </Flex>
             </InfoSection>
+            <StyledImage src={FlowerImageMain}/>
         </Flex>
     )
 };

@@ -22,7 +22,7 @@ import {
 import { validateTel } from '../../utils/validation';
 
 import content from '../../assets/content.json';
-import ImageMain from '../../assets/images/main.jpeg';
+import ImageMain from '../../assets/images/finished.png';
 
 const InputBlock = styled(Flex)`
     padding: ${({ padding }) => padding || '28px 8px'};
@@ -318,10 +318,12 @@ const Content = ({ page, answer, setAnswer }) => {
             }
             {
                 page === 4 && (
-                    <InputBlock>
-                        <Text fontSize="20px" padding="12px">{content.register.content.final_content}</Text>
-                        <Image width="280px" src={ImageMain}/>
-                    </InputBlock>
+                    <Flex direction="column">
+                        <Text fontSize="24px" padding="16px">{content.register.content.final_content}</Text>
+                        <Flex justify="center" padding="16px">
+                            <Image width="300px" src={ImageMain}/>
+                        </Flex>
+                    </Flex>
                 )
             }
             {
