@@ -28,7 +28,7 @@ export const LinkButton = styled(Link)`
     text-decoration: none;
     text-align: center;
     padding: 4px;
-    width: 108px;
+    width: 120px;
     height: 30px;
     color: #000000;
     background: #F7EFE9;
