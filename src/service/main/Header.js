@@ -13,6 +13,12 @@ const StyleLink = styled(Link)`
     padding: 16px;
 `;
 
+const StyledTitle = styled(Text)`
+    @media (max-width: 768px) {
+        font-size: 20px;
+    }
+`;
+
 const Header = () => {
     return (
         <Box
@@ -22,9 +28,9 @@ const Header = () => {
             borderBottom="1px solid #E4B392"
         >
             <Flex justify="space-between" height="50px">
-                <Text fontSize="24px" fontStyle="italic" padding="12px">
+                <StyledTitle fontSize="24px" fontStyle="italic" padding="12px">
                     {content.header.title}
-                </Text>
+                </StyledTitle>
                 <Flex>
                     <StyleLink to="/">{content.header.home}</StyleLink>
                     <StyleLink to="/register">{content.header.register}</StyleLink>
