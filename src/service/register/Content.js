@@ -313,7 +313,7 @@ const Content = ({ page, answer, setAnswer }) => {
                         <Box padding="12px">
                             <Box>{content.register.content.title_name} {name}</Box>
                             <Box>{content.register.content.title_relation} {RELATION[relation].label}</Box>
-                            <Box>{content.register.content.title_join} {JOIN[join ? 1 : 0].label}</Box>
+                            <Box>{content.register.content.title_join} {JOIN[join ? 0 : 1].label}</Box>
                             <Box>{content.register.content.title_invitation} {INVITE[invitation].label}</Box>
                             {
                                 address && invitation === 0 && <Box>{content.register.content.title_address} {address}</Box>
