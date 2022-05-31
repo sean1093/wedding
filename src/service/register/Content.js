@@ -72,7 +72,7 @@ const ValidationInput = ({
     onInput
 }) => {
     return (
-        <>
+        <Flex direction="column">
             <Input
                 name={keyValue}
                 value={value}
@@ -83,7 +83,7 @@ const ValidationInput = ({
             {
                 !validationFlag && <Text color={color.warning}>{validationWarning}</Text>
             }
-        </>
+        </Flex>
     );
 };
 ValidationInput.propTypes = {
