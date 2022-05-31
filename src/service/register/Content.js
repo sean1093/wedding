@@ -18,7 +18,7 @@ import {
     VEGETARIAN,
     CHILD
 } from '../../config/register';
-
+import { color } from '../../config/theme';
 import { validateTel } from '../../utils/validation';
 
 import content from '../../assets/content.json';
@@ -40,7 +40,7 @@ const InputTitle = styled(Flex)`
 
     &&::after{
         content: '${props => props.optional ? '' : '*'}';
-        color: red;
+        color: ${color.warning};
     }
 
     @media (max-width: 576px) {
@@ -78,10 +78,10 @@ const ValidationInput = ({
                 value={value}
                 width="290px"
                 onChange={onInput}
-                borderColor={validationFlag ? '#cccccc' : 'red'}
+                borderColor={validationFlag ? color.disable : color.warning}
             />
             {
-                !validationFlag && <Text color="red">{validationWarning}</Text>
+                !validationFlag && <Text color={color.warning}>{validationWarning}</Text>
             }
         </>
     );

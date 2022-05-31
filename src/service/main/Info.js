@@ -7,6 +7,7 @@ import Flex from '../../components/Flex';
 import Image from '../../components/Image';
 import { LinkButton } from '../../components/Button';
 
+import { color } from '../../config/theme';
 import content from '../../assets/content.json';
 import FlowerImageMain from '../../assets/images/background-image.jpeg';
 import ImageMain from '../../assets/images/main.png';
@@ -40,7 +41,7 @@ const StyledMainImage = styled(Image)`
 `;
 
 const StyledInfoText = styled(Text)`
-    color: black;
+    color: ${color.font};
     font-size: 16px;
     padding: 12px 28px;
     @media (max-width: 768px) {
@@ -91,12 +92,12 @@ const Info = () => {
                 </StyledContentBlock>
                 <StyledContentBlock margin="4px 0">
                     <FadeIn delay={1000}>
-                        <StyledTitleEventFirst color="black" fontSize="72px" fontStyle="italic">
+                        <StyledTitleEventFirst color={color.font} fontSize="72px" fontStyle="italic">
                             {content.main.title_event_first}
                         </StyledTitleEventFirst>
                     </FadeIn>
                     <FadeIn delay={1000}>
-                        <StyledTitleEvent color="black" fontSize="28px" fontStyle="italic" >
+                        <StyledTitleEvent color={color.font} fontSize="28px" fontStyle="italic" >
                             {content.main.title_event}
                         </StyledTitleEvent>
                     </FadeIn>

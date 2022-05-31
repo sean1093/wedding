@@ -8,9 +8,11 @@ import Text from '../../components/Text';
 
 import content from '../../assets/content.json';
 
+import { color } from '../../config/theme';
+
 const StyleLink = styled(Link)`
     text-decoration: none;
-    color: #E4B392;
+    color: ${color.primary};
     padding: 16px;
 `;
 
@@ -22,6 +24,7 @@ const StyledTitle = styled(Text)`
 
 const MenuIcon = styled(Box)`
     padding: 16px;
+    color: ${color.primary};
     &:hover {
         cursor: pointer
     }
@@ -33,7 +36,7 @@ const Menu = styled(Flex)`
     width: 100vw;
     position: fixed;
     top: 50px;
-    border: 1px solid #E4B392;
+    border: 1px solid ${color.primary};
 `;
 
 const NormalMenu = styled(Flex)`
@@ -52,7 +55,6 @@ const MobileMenu = styled(Flex)`
 const Header = () => {
     const [showMenu, setShowMenu] = useState(false);
     const onClickMenu = () => {
-        console.log('click');
         setShowMenu(!showMenu);
     };
 
@@ -61,7 +63,7 @@ const Header = () => {
             width="100%"
             minWidth="375px"
             height="50px"
-            borderBottom="1px solid #E4B392"
+            borderBottom={`1px solid ${color.primary}`}
         >
             <Flex justify="space-between" height="50px">
                 <StyledTitle fontSize="24px" fontStyle="italic" padding="12px">
