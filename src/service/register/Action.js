@@ -17,6 +17,7 @@ const Container = styled(Box)`
     width: 100%;
     height: 64px;
     min-width: 330px;
+    background-color: white;
 `;
 
 const isEmpty = (str) => str === null || str === undefined || str === '';
