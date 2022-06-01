@@ -65,6 +65,12 @@ const StyledTitleEvent = styled(Text)`
     }
 `;
 
+const InformationComp = ({ delay, content }) => (
+    <FadeIn delay={delay} transitionDuration={500}>
+        <StyledInfoText>{content}</StyledInfoText>
+    </FadeIn>
+);
+
 const Info = () => {
     return (
         <Flex justify="center" minWidth="375px" width="100vw">
@@ -95,15 +101,9 @@ const Info = () => {
                 </StyledContentBlock>
                 <StyledContentBlock>
                     <Box>
-                        <FadeIn delay={1500} transitionDuration={500}>
-                            <StyledInfoText>{content.main.time}</StyledInfoText>
-                        </FadeIn>
-                        <FadeIn delay={1800} transitionDuration={500}>
-                            <StyledInfoText>{content.main.location}</StyledInfoText>
-                        </FadeIn>
-                        <FadeIn delay={2100} transitionDuration={500}>
-                            <StyledInfoText>{content.main.address}</StyledInfoText>
-                        </FadeIn>
+                        <InformationComp delay={1500} content={content.main.time} />
+                        <InformationComp delay={1800} content={content.main.location} />
+                        <InformationComp delay={2100} content={content.main.address} />
                     </Box>
                 </StyledContentBlock>
                 <StyledContentBlock margin="36px 0">
