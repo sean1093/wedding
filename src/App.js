@@ -10,8 +10,7 @@ function App() {
             <Routes>
                 <Route path="/register" element={<Register />} />
                 <Route path="/search" element={<Search />} />
-                <Route path="/" element={<Main />}>
-            </Route>
+                <Route path="/" element={<Main />} />
             </Routes>
         </HashRouter>
     );
