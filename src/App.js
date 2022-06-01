@@ -1,7 +1,8 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Main from './service/main/Main';
 import Register from './service/register/Register';
-import Search from './service/search/Search'
+import Search from './service/search/Search';
 import './App.css';
 
 function App() {
@@ -10,8 +11,7 @@ function App() {
             <Routes>
                 <Route path="/register" element={<Register />} />
                 <Route path="/search" element={<Search />} />
-                <Route path="/" element={<Main />}>
-            </Route>
+                <Route path="/" element={<Main />} />
             </Routes>
         </HashRouter>
     );

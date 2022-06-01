@@ -11,7 +11,15 @@ const StyleText = styled(Box)`
     color: ${({ color }) => color || '#E4B392'};
 `;
 
-const Text = ({ fontSize, fontStyle, color, textAlign, lang, children, ...props }) => {
+const Text = ({
+    fontSize,
+    fontStyle,
+    color,
+    textAlign,
+    lang,
+    children,
+    ...props
+}) => {
     return (
         <StyleText
             fontSize={fontSize}

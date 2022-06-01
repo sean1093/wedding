@@ -1,17 +1,17 @@
-import Header from "./Header";
-import Info from "./Info";
+import React from 'react';
+import Header from './Header';
+import Info from './Info';
 
-import Flex from '../../components/Flex';
+import { BackgroundImages } from '../../components/Image';
 
 const Main = () => {
     return (
         <>
             <Header />
-            <Flex>
-                <Info />
-            </Flex>
+            <Info />
+            <BackgroundImages />
         </>
-    )
+    );
 };
 
 export default Main;

@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FadeIn from 'react-fade-in';
 
@@ -9,16 +11,7 @@ import { LinkButton } from '../../components/Button';
 
 import { color } from '../../config/theme';
 import content from '../../assets/content.json';
-import FlowerImageMain from '../../assets/images/background-image.jpeg';
 import ImageMain from '../../assets/images/main.png';
-
-const StyledImage = styled(Image)`
-    position: fixed;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    opacity: .8;
-`;
 
 const StyledMainImage = styled(Image)`
     width: 400px;
@@ -74,6 +67,16 @@ const StyledTitleEvent = styled(Text)`
     }
 `;
 
+const InformationComp = ({ delay, content }) => (
+    <FadeIn delay={delay} transitionDuration={500}>
+        <StyledInfoText>{content}</StyledInfoText>
+    </FadeIn>
+);
+InformationComp.propTypes = {
+    delay: PropTypes.number.isRequired,
+    content: PropTypes.string.isRequired
+};
+
 const Info = () => {
     return (
         <Flex justify="center" minWidth="375px" width="100vw">
@@ -87,32 +90,43 @@ const Info = () => {
                 </StyledContentBlock>
                 <StyledContentBlock padding="16px 0 0">
                     <FadeIn delay={500} transitionDuration={1000}>
-                        <StyledMainImage src={ImageMain}/>
+                        <StyledMainImage src={ImageMain} />
                     </FadeIn>
                 </StyledContentBlock>
                 <StyledContentBlock margin="4px 0">
                     <FadeIn delay={1000}>
-                        <StyledTitleEventFirst color={color.font} fontSize="72px" fontStyle="italic">
+                        <StyledTitleEventFirst
+                            color={color.font}
+                            fontSize="72px"
+                            fontStyle="italic"
+                        >
                             {content.main.title_event_first}
                         </StyledTitleEventFirst>
                     </FadeIn>
                     <FadeIn delay={1000}>
-                        <StyledTitleEvent color={color.font} fontSize="28px" fontStyle="italic" >
+                        <StyledTitleEvent
+                            color={color.font}
+                            fontSize="28px"
+                            fontStyle="italic"
+                        >
                             {content.main.title_event}
                         </StyledTitleEvent>
                     </FadeIn>
                 </StyledContentBlock>
                 <StyledContentBlock>
                     <Box>
-                        <FadeIn delay={1500} transitionDuration={500}>
-                            <StyledInfoText>{content.main.time}</StyledInfoText>
-                        </FadeIn>
-                        <FadeIn delay={1800} transitionDuration={500}>
-                            <StyledInfoText>{content.main.location}</StyledInfoText>
-                        </FadeIn>
-                        <FadeIn delay={2100} transitionDuration={500}>
-                            <StyledInfoText>{content.main.address}</StyledInfoText>
-                        </FadeIn>
+                        <InformationComp
+                            delay={1500}
+                            content={content.main.time}
+                        />
+                        <InformationComp
+                            delay={1800}
+                            content={content.main.location}
+                        />
+                        <InformationComp
+                            delay={2100}
+                            content={content.main.address}
+                        />
                     </Box>
                 </StyledContentBlock>
                 <StyledContentBlock margin="36px 0">
@@ -121,9 +135,8 @@ const Info = () => {
                     </LinkButton>
                 </StyledContentBlock>
             </Flex>
-            <StyledImage src={FlowerImageMain}/>
         </Flex>
-    )
+    );
 };
 
 export default Info;

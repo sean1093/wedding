@@ -7,7 +7,7 @@ export const StyleTextarea = styled.textarea`
     margin: ${({ margin }) => margin || '0px'};
     padding: 12px;
     border-radius: 4px;
-    border: 1px solid ${({ borderColor }) => borderColor || '#cccccc' };
+    border: 1px solid ${({ borderColor }) => borderColor || '#cccccc'};
 `;
 
 const StyleInput = styled.input`
@@ -15,7 +15,7 @@ const StyleInput = styled.input`
     width: ${({ width }) => width || '90%'};
     margin: ${({ margin }) => margin || '0px'};
     border-radius: 4px;
-    border: 1px solid ${({ borderColor }) => borderColor || '#cccccc' };
+    border: 1px solid ${({ borderColor }) => borderColor || '#cccccc'};
 `;
 
 const Input = ({ width, height, margin, borderColor, ...props }) => {

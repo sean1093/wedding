@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
 
 import Header from '../main/Header';
 import Content from './Content';
@@ -7,19 +6,7 @@ import Action from './Action';
 
 import Box from '../../components/Box';
 import Flex from '../../components/Flex';
-import Image from '../../components/Image';
-
-// images
-import FlowerImageMain from '../../assets/images/background-image.jpeg';
-
-const StyledImage = styled(Image)`
-    position: fixed;
-    z-index: -1;
-    width: 100vw;
-    top: 50px;
-    height: calc(100vh - 114px);
-    opacity: .8;
-`;
+import { BackgroundImages } from '../../components/Image';
 
 const Register = () => {
     const [page, setPage] = useState(0);
@@ -37,7 +24,7 @@ const Register = () => {
                     />
                 </Box>
             </Flex>
-            <StyledImage src={FlowerImageMain}/>
+            <BackgroundImages />
             <Action
                 answer={answer}
                 page={page}
@@ -45,7 +32,7 @@ const Register = () => {
                 updatePage={setPage}
             />
         </>
-    )
+    );
 };
 
 export default Register;
