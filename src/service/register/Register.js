@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import Header from '../main/Header';
 import Content from './Content';
@@ -32,7 +32,7 @@ const Register = () => {
                 updatePage={setPage}
             />
         </>
-    )
+    );
 };
 
 export default Register;

@@ -1,4 +1,3 @@
-
 import content from '../assets/content.json';
 
 export const RELATION = [

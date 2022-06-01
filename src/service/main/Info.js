@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FadeIn from 'react-fade-in';
 
@@ -70,6 +72,10 @@ const InformationComp = ({ delay, content }) => (
         <StyledInfoText>{content}</StyledInfoText>
     </FadeIn>
 );
+InformationComp.propTypes = {
+    delay: PropTypes.number.isRequired,
+    content: PropTypes.string.isRequired
+};
 
 const Info = () => {
     return (
@@ -84,26 +90,43 @@ const Info = () => {
                 </StyledContentBlock>
                 <StyledContentBlock padding="16px 0 0">
                     <FadeIn delay={500} transitionDuration={1000}>
-                        <StyledMainImage src={ImageMain}/>
+                        <StyledMainImage src={ImageMain} />
                     </FadeIn>
                 </StyledContentBlock>
                 <StyledContentBlock margin="4px 0">
                     <FadeIn delay={1000}>
-                        <StyledTitleEventFirst color={color.font} fontSize="72px" fontStyle="italic">
+                        <StyledTitleEventFirst
+                            color={color.font}
+                            fontSize="72px"
+                            fontStyle="italic"
+                        >
                             {content.main.title_event_first}
                         </StyledTitleEventFirst>
                     </FadeIn>
                     <FadeIn delay={1000}>
-                        <StyledTitleEvent color={color.font} fontSize="28px" fontStyle="italic" >
+                        <StyledTitleEvent
+                            color={color.font}
+                            fontSize="28px"
+                            fontStyle="italic"
+                        >
                             {content.main.title_event}
                         </StyledTitleEvent>
                     </FadeIn>
                 </StyledContentBlock>
                 <StyledContentBlock>
                     <Box>
-                        <InformationComp delay={1500} content={content.main.time} />
-                        <InformationComp delay={1800} content={content.main.location} />
-                        <InformationComp delay={2100} content={content.main.address} />
+                        <InformationComp
+                            delay={1500}
+                            content={content.main.time}
+                        />
+                        <InformationComp
+                            delay={1800}
+                            content={content.main.location}
+                        />
+                        <InformationComp
+                            delay={2100}
+                            content={content.main.address}
+                        />
                     </Box>
                 </StyledContentBlock>
                 <StyledContentBlock margin="36px 0">
@@ -113,7 +136,7 @@ const Info = () => {
                 </StyledContentBlock>
             </Flex>
         </Flex>
-    )
+    );
 };
 
 export default Info;

@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 import Box from '../../components/Box';
 import Flex from '../../components/Flex';
@@ -26,7 +26,7 @@ const MenuIcon = styled(Box)`
     padding: 16px;
     color: ${color.primary};
     &:hover {
-        cursor: pointer
+        cursor: pointer;
     }
 `;
 
@@ -71,22 +71,24 @@ const Header = () => {
                 </StyledTitle>
                 <NormalMenu>
                     <StyleLink to="/">{content.header.home}</StyleLink>
-                    <StyleLink to="/register">{content.header.register}</StyleLink>
+                    <StyleLink to="/register">
+                        {content.header.register}
+                    </StyleLink>
                 </NormalMenu>
                 <MobileMenu>
                     <MenuIcon onClick={onClickMenu} className="fa fa-bars" />
                 </MobileMenu>
-                {
-                    showMenu && (
-                        <Menu>
-                            <StyleLink to="/">{content.header.home}</StyleLink>
-                            <StyleLink to="/register">{content.header.register}</StyleLink>
-                        </Menu>
-                    )
-                }
+                {showMenu && (
+                    <Menu>
+                        <StyleLink to="/">{content.header.home}</StyleLink>
+                        <StyleLink to="/register">
+                            {content.header.register}
+                        </StyleLink>
+                    </Menu>
+                )}
             </Flex>
         </Box>
-    )
+    );
 };
 
 export default Header;

@@ -1,5 +1,6 @@
-import Header from "./Header";
-import Info from "./Info";
+import React from 'react';
+import Header from './Header';
+import Info from './Info';
 
 import { BackgroundImages } from '../../components/Image';
 
@@ -10,7 +11,7 @@ const Main = () => {
             <Info />
             <BackgroundImages />
         </>
-    )
+    );
 };
 
 export default Main;
