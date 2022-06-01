@@ -2,6 +2,7 @@ import Header from "./Header";
 import Info from "./Info";
 
 import Flex from '../../components/Flex';
+import { BackgroundImages } from '../../components/Image';
 
 const Main = () => {
     return (
@@ -10,6 +11,7 @@ const Main = () => {
             <Flex>
                 <Info />
             </Flex>
+            <BackgroundImages />
         </>
     )
 };

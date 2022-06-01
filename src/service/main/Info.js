@@ -9,16 +9,7 @@ import { LinkButton } from '../../components/Button';
 
 import { color } from '../../config/theme';
 import content from '../../assets/content.json';
-import FlowerImageMain from '../../assets/images/background-image.jpeg';
 import ImageMain from '../../assets/images/main.png';
-
-const StyledImage = styled(Image)`
-    position: fixed;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    opacity: .8;
-`;
 
 const StyledMainImage = styled(Image)`
     width: 400px;
@@ -121,7 +112,6 @@ const Info = () => {
                     </LinkButton>
                 </StyledContentBlock>
             </Flex>
-            <StyledImage src={FlowerImageMain}/>
         </Flex>
     )
 };
