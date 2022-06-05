@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 import Box from './Box';
+import { color } from '../config/theme';
 
 const BaseButton = styled(Box)`
     &:hover {
         cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     }
-    color: ${({ disabled }) => (disabled ? '#DFDFDF' : 'black')};
+    color: ${({ disabled }) => (disabled ? color.disable : color.primary)};
     padding: 4px;
     text-align: center;
     width: 108px;
@@ -16,8 +18,8 @@ const BaseButton = styled(Box)`
 export const ActionButton = styled(BaseButton)``;
 
 export const NormalButton = styled(BaseButton)`
-    background: #f7efe9;
-    border: 1px solid #000000;
+    background: ${color.back};
+    border: 1px solid ${color.black};
     box-sizing: border-box;
     border-radius: 10px;
 `;
@@ -28,9 +30,9 @@ export const LinkButton = styled(Link)`
     padding: 4px;
     width: 120px;
     height: 30px;
-    color: #000000;
-    background: #f7efe9;
-    border: 1px solid #000000;
+    color: ${color.black};
+    background: ${color.back};
+    border: 1px solid ${color.black};
     box-sizing: border-box;
     border-radius: 10px;
 `;

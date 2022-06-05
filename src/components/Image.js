@@ -4,6 +4,7 @@ import MainBackgroundImage from '../assets/images/background-image.jpeg';
 
 const StyleImage = styled.img`
     width: ${({ width }) => width || 'auto'};
+    box-shadow: ${({ boxShadow }) => boxShadow || 'none'};
 `;
 
 const BackgroundImage = styled(StyleImage)`

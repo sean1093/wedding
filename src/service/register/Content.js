@@ -37,6 +37,8 @@ const InputBlock = styled(Flex)`
 
 const InputTitle = styled(Flex)`
     width: 200px;
+    font-size: 20px;
+    padding: 6px 0;
 
     &&::after {
         content: '${(props) => (props.optional ? '' : '*')}';
@@ -323,53 +325,53 @@ const Content = ({ page, answer, setAnswer }) => {
                         {content.register.content.title_confirm}
                     </Text>
                     <Box padding="12px">
-                        <Box>
+                        <Box padding="4px">
                             {content.register.content.title_name} {name}
                         </Box>
-                        <Box>
+                        <Box padding="4px">
                             {content.register.content.title_relation}{' '}
                             {RELATION[relation].label}
                         </Box>
-                        <Box>
+                        <Box padding="4px">
                             {content.register.content.title_join}{' '}
                             {JOIN[join ? 0 : 1].label}
                         </Box>
-                        <Box>
+                        <Box padding="4px">
                             {content.register.content.title_invitation}{' '}
                             {INVITE[invitation].label}
                         </Box>
                         {address && invitation === 0 && (
-                            <Box>
+                            <Box padding="4px">
                                 {content.register.content.title_address}{' '}
                                 {address}
                             </Box>
                         )}
                         {address && invitation === 1 && (
-                            <Box>
+                            <Box padding="4px">
                                 {content.register.content.title_email} {address}
                             </Box>
                         )}
                         {people && (
-                            <Box>
+                            <Box padding="4px">
                                 {content.register.content.title_people} {people}
                             </Box>
                         )}
                         {vegetarian !== undefined && (
-                            <Box>
+                            <Box padding="4px">
                                 {content.register.content.title_vegetarian}{' '}
                                 {people}
                             </Box>
                         )}
                         {child !== undefined && (
-                            <Box>
+                            <Box padding="4px">
                                 {content.register.content.title_child} {child}
                             </Box>
                         )}
-                        <Box>
+                        <Box padding="4px">
                             {content.register.content.title_tel} {tel}
                         </Box>
-                        <Box>
-                            {content.register.content.title_notes} {notes}
+                        <Box padding="4px">
+                            {content.register.content.title_notes} {notes || 'N/A'}
                         </Box>
                     </Box>
                 </Flex>
@@ -377,12 +379,12 @@ const Content = ({ page, answer, setAnswer }) => {
             {page === 4 && (
                 <>
                     <Flex justify="center" width="inherit">
-                        <Text fontSize="24px" padding="16px">
+                        <Text fontSize="24px" padding="24px">
                             {content.register.content.final_content}
                         </Text>
                     </Flex>
                     <Flex justify="center" width="inherit">
-                        <Image width="300px" src={ImageMain} />
+                        <Image width="300px" src={ImageMain} boxShadow="0px 0px 8px black"/>
                     </Flex>
                 </>
             )}

@@ -14,6 +14,15 @@ const StyleLink = styled(Link)`
     text-decoration: none;
     color: ${color.primary};
     padding: 16px;
+    width: auto;
+
+    &:hover {
+        background-color: ${color.primary};
+        color: white;
+    }
+    @media (max-width: 576px) {
+        width: 100vw;
+    }
 `;
 
 const StyledTitle = styled(Text)`
