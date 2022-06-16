@@ -11,7 +11,7 @@
         "time": "時間: 2022.12.04  12:00pm (Sun.) 週日午宴",
         "location": "地點: 台北晶華酒店 4F 萬象廳",
         "address": "地址: 中山北路二段39巷3號 (捷運中山站)",
-        "button_register": "出席表單"
+        "button_register": "填寫出席表單"
     },
     "register": {
         "content": {
@@ -35,7 +35,7 @@
             "relation_4": "共同好友",
             "join_yes": "到場參加",
             "join_no": "不克參加",
-            "invite_0": "需要紙本",
+            "invite_0": "只需要紙本喜帖",
             "invite_1": "只需要電子喜帖",
             "invite_2": "不需要喜帖",
             "final_content": "感謝您的填寫！",

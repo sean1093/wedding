@@ -8,6 +8,7 @@ export const StyleTextarea = styled.textarea`
     padding: 12px;
     border-radius: 4px;
     border: 1px solid ${({ borderColor }) => borderColor || '#cccccc'};
+    resize: none;
 `;
 
 const StyleInput = styled.input`

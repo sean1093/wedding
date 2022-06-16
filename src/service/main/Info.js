@@ -36,10 +36,9 @@ const StyledMainImage = styled(Image)`
 const StyledInfoText = styled(Text)`
     color: ${color.font};
     font-size: 16px;
-    padding: 12px 28px;
+    padding: 8px 36px;
     @media (max-width: 768px) {
         font-size: 14px;
-        padding: 8px 36px;
     }
 `;
 
@@ -129,8 +128,8 @@ const Info = () => {
                         />
                     </Box>
                 </StyledContentBlock>
-                <StyledContentBlock margin="36px 0">
-                    <LinkButton to="/register">
+                <StyledContentBlock margin="16px 0">
+                    <LinkButton to="/register" width="150px" height="35px" padding="6px">
                         {content.main.button_register}
                     </LinkButton>
                 </StyledContentBlock>
