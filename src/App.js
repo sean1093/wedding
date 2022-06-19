@@ -3,7 +3,6 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import Main from './service/main/Main';
 import Register from './service/register/Register';
-import Search from './service/search/Search';
 
 import ImageMain from './assets/images/main.png';
 import ImageFinished from './assets/images/finished.png';
@@ -26,7 +25,6 @@ function App() {
         <HashRouter>
             <Routes>
                 <Route path={PAGE.REGISTER.PATH} element={<Register />} />
-                <Route path="/search" element={<Search />} />
                 <Route path={PAGE.MAIN.PATH} element={<Main />} />
             </Routes>
         </HashRouter>
