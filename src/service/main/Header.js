@@ -9,6 +9,7 @@ import Text from '../../components/Text';
 import content from '../../assets/content.json';
 
 import { color } from '../../config/theme';
+import { PAGE } from '../../config/common';
 
 const StyleLink = styled(Link)`
     text-decoration: none;
@@ -79,10 +80,10 @@ const Header = ({ service }) => {
                     {content.header.title}
                 </StyledTitle>
                 {
-                    service === 'register' && (
+                    service === PAGE.REGISTER.KEY && (
                         <>
                             <NormalMenu>
-                                <StyleLink to="/">
+                                <StyleLink to={PAGE.MAIN.PATH}>
                                     {content.header.home}
                                 </StyleLink>
                             </NormalMenu>
@@ -92,9 +93,9 @@ const Header = ({ service }) => {
                         </>
                     )
                 }
-                {showMenu && service === 'register' && (
+                {showMenu && service === PAGE.REGISTER.KEY && (
                     <Menu>
-                        <StyleLink to="/">
+                        <StyleLink to={PAGE.MAIN.PATH}>
                             {content.header.home}
                         </StyleLink>
                     </Menu>

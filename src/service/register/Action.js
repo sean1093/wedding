@@ -13,6 +13,7 @@ import {
 import { postRequest } from '../../utils/httpService';
 import { validateTel } from '../../utils/validation';
 import content from '../../assets/content.json';
+import { PAGE } from '../../config/common';
 
 const Container = styled(Box)`
     position: fixed;
@@ -121,7 +122,7 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                     )}
                     {page === 4 && (
                         <Flex>
-                            <LinkButton to="/">
+                            <LinkButton to={PAGE.MAIN.PATH}>
                                 {content.register.action.button_home}
                             </LinkButton>
                             <NormalButton

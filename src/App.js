@@ -8,6 +8,8 @@ import Search from './service/search/Search';
 import ImageMain from './assets/images/main.png';
 import ImageFinished from './assets/images/finished.png';
 
+import { PAGE } from './config/common';
+
 import './App.css';
 
 const preloadImages = [{ src: ImageMain }, { src: ImageFinished }];
@@ -23,9 +25,9 @@ function App() {
     return (
         <HashRouter>
             <Routes>
-                <Route path="/register" element={<Register />} />
+                <Route path={PAGE.REGISTER.PATH} element={<Register />} />
                 <Route path="/search" element={<Search />} />
-                <Route path="/" element={<Main />} />
+                <Route path={PAGE.MAIN.PATH} element={<Main />} />
             </Routes>
         </HashRouter>
     );
