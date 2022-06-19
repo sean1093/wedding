@@ -30,7 +30,6 @@ const Register = () => {
             <Action
                 answer={answer}
                 page={page}
-                setAnswer={setAnswer}
                 updatePage={setPage}
             />
         </>

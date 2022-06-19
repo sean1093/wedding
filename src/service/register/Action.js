@@ -12,6 +12,7 @@ import {
 
 import { postRequest } from '../../utils/httpService';
 import { validateTel } from '../../utils/validation';
+
 import content from '../../assets/content.json';
 import { PAGE } from '../../config/common';
 
@@ -27,7 +28,7 @@ const Container = styled(Box)`
 
 const isEmpty = (str) => str === null || str === undefined || str === '';
 
-const Action = ({ answer, page, setAnswer, updatePage }) => {
+const Action = ({ answer, page, updatePage }) => {
     const [isEnableNextButton, setIsEnableNextButton] = useState(false);
     const { join } = answer;
 
@@ -125,15 +126,6 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
                             <LinkButton to={PAGE.MAIN.PATH}>
                                 {content.register.action.button_home}
                             </LinkButton>
-                            <NormalButton
-                                margin="0px 0px 0px 8px"
-                                onClick={() => {
-                                    setAnswer({});
-                                    updatePage(0);
-                                }}
-                            >
-                                {content.register.action.button_retry}
-                            </NormalButton>
                         </Flex>
                     )}
                 </Box>
@@ -145,7 +137,6 @@ const Action = ({ answer, page, setAnswer, updatePage }) => {
 Action.propTypes = {
     answer: PropTypes.object.isRequired,
     page: PropTypes.number.isRequired,
-    setAnswer: PropTypes.func.isRequired,
     updatePage: PropTypes.func.isRequired
 };
 
