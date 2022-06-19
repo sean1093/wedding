@@ -14,7 +14,7 @@ const Register = () => {
 
     return (
         <>
-            <Header />
+            <Header service="register" />
             <Flex height="calc(100vh - 128px)">
                 <Box width="100vw" minWidth="225px">
                     <Content

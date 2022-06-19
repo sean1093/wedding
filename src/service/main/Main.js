@@ -7,7 +7,7 @@ import { BackgroundImages } from '../../components/Image';
 const Main = () => {
     return (
         <>
-            <Header />
+            <Header service="main" />
             <Info />
             <BackgroundImages />
         </>

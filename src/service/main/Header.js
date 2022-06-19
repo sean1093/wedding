@@ -61,7 +61,7 @@ const MobileMenu = styled(Flex)`
     }
 `;
 
-const Header = () => {
+const Header = ({ service }) => {
     const [showMenu, setShowMenu] = useState(false);
     const onClickMenu = () => {
         setShowMenu(!showMenu);
@@ -78,20 +78,24 @@ const Header = () => {
                 <StyledTitle fontSize="24px" fontStyle="italic" padding="12px">
                     {content.header.title}
                 </StyledTitle>
-                <NormalMenu>
-                    <StyleLink to="/">{content.header.home}</StyleLink>
-                    <StyleLink to="/register">
-                        {content.header.register}
-                    </StyleLink>
-                </NormalMenu>
-                <MobileMenu>
-                    <MenuIcon onClick={onClickMenu} className="fa fa-bars" />
-                </MobileMenu>
-                {showMenu && (
+                {
+                    service === 'register' && (
+                        <>
+                            <NormalMenu>
+                                <StyleLink to="/">
+                                    {content.header.home}
+                                </StyleLink>
+                            </NormalMenu>
+                            <MobileMenu>
+                                <MenuIcon onClick={onClickMenu} className="fa fa-bars" />
+                            </MobileMenu>
+                        </>
+                    )
+                }
+                {showMenu && service === 'register' && (
                     <Menu>
-                        <StyleLink to="/">{content.header.home}</StyleLink>
-                        <StyleLink to="/register">
-                            {content.header.register}
+                        <StyleLink to="/">
+                            {content.header.home}
                         </StyleLink>
                     </Menu>
                 )}
