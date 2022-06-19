@@ -1,10 +1,10 @@
 export const PAGE = {
     MAIN: {
         KEY: Symbol(),
-        PATH: '/',
+        PATH: '/'
     },
     REGISTER: {
         KEY: Symbol(),
-        PATH: '/register',
-    },
+        PATH: '/register'
+    }
 };

@@ -27,11 +27,7 @@ const Register = () => {
                 </Box>
             </Flex>
             <BackgroundImages />
-            <Action
-                answer={answer}
-                page={page}
-                updatePage={setPage}
-            />
+            <Action answer={answer} page={page} updatePage={setPage} />
         </>
     );
 };

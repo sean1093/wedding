@@ -79,20 +79,21 @@ const Header = ({ service }) => {
                 <StyledTitle fontSize="24px" fontStyle="italic" padding="12px">
                     {content.header.title}
                 </StyledTitle>
-                {
-                    service === PAGE.REGISTER.KEY && (
-                        <>
-                            <NormalMenu>
-                                <StyleLink to={PAGE.MAIN.PATH}>
-                                    {content.header.home}
-                                </StyleLink>
-                            </NormalMenu>
-                            <MobileMenu>
-                                <MenuIcon onClick={onClickMenu} className="fa fa-bars" />
-                            </MobileMenu>
-                        </>
-                    )
-                }
+                {service === PAGE.REGISTER.KEY && (
+                    <>
+                        <NormalMenu>
+                            <StyleLink to={PAGE.MAIN.PATH}>
+                                {content.header.home}
+                            </StyleLink>
+                        </NormalMenu>
+                        <MobileMenu>
+                            <MenuIcon
+                                onClick={onClickMenu}
+                                className="fa fa-bars"
+                            />
+                        </MobileMenu>
+                    </>
+                )}
                 {showMenu && service === PAGE.REGISTER.KEY && (
                     <Menu>
                         <StyleLink to={PAGE.MAIN.PATH}>
