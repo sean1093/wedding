@@ -313,6 +313,7 @@ const Content = ({ page, answer, setAnswer }) => {
                                 width="280px"
                                 height="200px"
                                 onChange={onInput}
+                                value={notes}
                                 name="notes"
                             />
                         </InputField>
