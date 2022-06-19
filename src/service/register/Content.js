@@ -313,6 +313,7 @@ const Content = ({ page, answer, setAnswer }) => {
                                 width="280px"
                                 height="200px"
                                 onChange={onInput}
+                                value={notes}
                                 name="notes"
                             />
                         </InputField>
@@ -371,7 +372,8 @@ const Content = ({ page, answer, setAnswer }) => {
                             {content.register.content.title_tel} {tel}
                         </Box>
                         <Box padding="4px">
-                            {content.register.content.title_notes} {notes || 'N/A'}
+                            {content.register.content.title_notes}{' '}
+                            {notes || 'N/A'}
                         </Box>
                     </Box>
                 </Flex>
@@ -384,7 +386,11 @@ const Content = ({ page, answer, setAnswer }) => {
                         </Text>
                     </Flex>
                     <Flex justify="center" width="inherit">
-                        <Image width="300px" src={ImageMain} boxShadow="0px 0px 8px black"/>
+                        <Image
+                            width="300px"
+                            src={ImageMain}
+                            boxShadow="0px 0px 8px black"
+                        />
                     </Flex>
                 </>
             )}

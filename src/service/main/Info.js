@@ -129,7 +129,12 @@ const Info = () => {
                     </Box>
                 </StyledContentBlock>
                 <StyledContentBlock margin="16px 0">
-                    <LinkButton to="/register" width="150px" height="35px" padding="6px">
+                    <LinkButton
+                        to="/register"
+                        width="150px"
+                        height="35px"
+                        padding="6px"
+                    >
                         {content.main.button_register}
                     </LinkButton>
                 </StyledContentBlock>

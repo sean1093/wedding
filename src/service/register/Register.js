@@ -8,13 +8,15 @@ import Box from '../../components/Box';
 import Flex from '../../components/Flex';
 import { BackgroundImages } from '../../components/Image';
 
+import { PAGE } from '../../config/common';
+
 const Register = () => {
     const [page, setPage] = useState(0);
     const [answer, setAnswer] = useState({});
 
     return (
         <>
-            <Header />
+            <Header service={PAGE.REGISTER.KEY} />
             <Flex height="calc(100vh - 128px)">
                 <Box width="100vw" minWidth="225px">
                     <Content
@@ -25,12 +27,7 @@ const Register = () => {
                 </Box>
             </Flex>
             <BackgroundImages />
-            <Action
-                answer={answer}
-                page={page}
-                setAnswer={setAnswer}
-                updatePage={setPage}
-            />
+            <Action answer={answer} page={page} updatePage={setPage} />
         </>
     );
 };
