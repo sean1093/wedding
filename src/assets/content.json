@@ -2,7 +2,8 @@
     "header": {
         "title": "Sean & Coco",
         "home": "回主頁",
-        "register": "出席表單"
+        "register": "出席表單",
+        "report": "回報問題"
     },
     "main": {
         "title_name": "Sean & Coco",
