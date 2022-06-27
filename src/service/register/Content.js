@@ -259,7 +259,9 @@ const Content = ({ page, answer, setAnswer }) => {
                                 value={VEGETARIAN.find(
                                     (r) => r.value === vegetarian
                                 )}
-                                options={VEGETARIAN}
+                                options={VEGETARIAN.filter(
+                                    (v) => v.value <= people
+                                )}
                                 onChange={onSelect}
                             />
                         </InputField>
@@ -272,7 +274,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <StyledSelect
                                 name="child"
                                 value={CHILD.find((r) => r.value === child)}
-                                options={CHILD}
+                                options={CHILD.filter((v) => v.value <= people)}
                                 onChange={onSelect}
                             />
                         </InputField>
