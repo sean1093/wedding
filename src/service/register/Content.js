@@ -9,6 +9,7 @@ import Input, { StyleTextarea } from '../../components/Input';
 import Flex from '../../components/Flex';
 import Text from '../../components/Text';
 import Image from '../../components/Image';
+import { ReportButton } from '../../components/Button';
 
 import {
     RELATION,
@@ -398,12 +399,15 @@ const Content = ({ page, answer, setAnswer }) => {
             )}
             {page === 5 && (
                 <Flex direction="column">
-                    <Text fontSize="20px" padding="12px">
+                    <Text fontSize="20px" padding="12px" color={color.black}>
                         {content.register.content.error_title}
                     </Text>
-                    <Text fontSize="16px" padding="12px">
+                    <Text fontSize="16px" padding="12px" color={color.black}>
                         {content.register.content.error_content}
                     </Text>
+                    <Box padding="12px">
+                        <ReportButton />
+                    </Box>
                 </Flex>
             )}
         </Flex>
