@@ -4,17 +4,12 @@ import styled from 'styled-components';
 
 import Flex from '../../components/Flex';
 import Box from '../../components/Box';
-import {
-    ActionButton,
-    NormalButton,
-    LinkButton
-} from '../../components/Button';
+import { ActionButton, NormalButton } from '../../components/Button';
 
 import { postRequest } from '../../utils/httpService';
 import { validateTel } from '../../utils/validation';
 
 import content from '../../assets/content.json';
-import { PAGE } from '../../config/common';
 
 const Container = styled(Box)`
     position: fixed;
@@ -72,65 +67,62 @@ const Action = ({ answer, page, updatePage }) => {
     }, [page, answer]);
 
     return (
-        <Container>
-            <Flex justify="space-between" padding="20px 16px">
-                <Box>
-                    {(page === 1 || page === 2 || page === 3) && (
-                        <ActionButton
-                            onClick={() => {
-                                if (!join && page === 2) {
-                                    updatePage(0);
-                                } else {
-                                    updatePage(--page);
-                                }
-                            }}
-                        >
-                            {content.register.action.previous}
-                        </ActionButton>
-                    )}
-                </Box>
-                <Box>
-                    {(page === 0 || page === 1 || page === 2) && (
-                        <ActionButton
-                            disabled={!isEnableNextButton}
-                            onClick={() => {
-                                if (isEnableNextButton) {
-                                    if (!join && page === 0) {
-                                        updatePage(2);
-                                    } else {
+        <>
+            {page !== 4 && page !== 5 && (
+                <Container>
+                    <Flex justify="space-between" padding="20px 16px">
+                        <Box>
+                            {(page === 1 || page === 2 || page === 3) && (
+                                <ActionButton
+                                    onClick={() => {
+                                        if (!join && page === 2) {
+                                            updatePage(0);
+                                        } else {
+                                            updatePage(--page);
+                                        }
+                                    }}
+                                >
+                                    {content.register.action.previous}
+                                </ActionButton>
+                            )}
+                        </Box>
+                        <Box>
+                            {(page === 0 || page === 1 || page === 2) && (
+                                <ActionButton
+                                    disabled={!isEnableNextButton}
+                                    onClick={() => {
+                                        if (isEnableNextButton) {
+                                            if (!join && page === 0) {
+                                                updatePage(2);
+                                            } else {
+                                                updatePage(++page);
+                                            }
+                                        }
+                                    }}
+                                >
+                                    {content.register.action.next}
+                                </ActionButton>
+                            )}
+                            {page === 3 && (
+                                <NormalButton
+                                    onClick={async () => {
                                         updatePage(++page);
-                                    }
-                                }
-                            }}
-                        >
-                            {content.register.action.next}
-                        </ActionButton>
-                    )}
-                    {page === 3 && (
-                        <NormalButton
-                            onClick={async () => {
-                                updatePage(++page);
-                                const result = await postRequest({
-                                    data: answer
-                                });
-                                if (result?.status === 500) {
-                                    updatePage(5);
-                                }
-                            }}
-                        >
-                            {content.register.action.button_finish}
-                        </NormalButton>
-                    )}
-                    {page === 4 && (
-                        <Flex>
-                            <LinkButton to={PAGE.MAIN.PATH}>
-                                {content.register.action.button_home}
-                            </LinkButton>
-                        </Flex>
-                    )}
-                </Box>
-            </Flex>
-        </Container>
+                                        const result = await postRequest({
+                                            data: answer
+                                        });
+                                        if (result?.status === 500) {
+                                            updatePage(5);
+                                        }
+                                    }}
+                                >
+                                    {content.register.action.button_finish}
+                                </NormalButton>
+                            )}
+                        </Box>
+                    </Flex>
+                </Container>
+            )}
+        </>
     );
 };
 

@@ -38,13 +38,14 @@ export const LinkButton = styled(Link)`
     border-radius: 10px;
 `;
 
-const LinkOuterButton = styled.a`
+export const LinkOuterButton = styled.a`
     display: inline-block;
     text-decoration: none;
     text-align: center;
-    padding: 8px;
-    width: 100px;
-    height: 35px;
+    margin: ${({ margin }) => (margin ? margin : '0 8px')};
+    padding: ${({ padding }) => (padding ? padding : '4px')};
+    width: ${({ width }) => (width ? width : '120px')};
+    height: ${({ height }) => (height ? height : '30px')};
     color: ${color.black};
     background: ${color.back};
     border: 1px solid ${color.black};
