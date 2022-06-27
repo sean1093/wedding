@@ -2,7 +2,8 @@
     "header": {
         "title": "Sean & Coco",
         "home": "回主頁",
-        "register": "出席表單"
+        "register": "出席表單",
+        "report": "回報問題"
     },
     "main": {
         "title_name": "Sean & Coco",
@@ -39,8 +40,10 @@
             "invite_1": "只需要電子喜帖",
             "invite_2": "不需要喜帖",
             "final_content": "感謝您的填寫！",
+            "final_map": "交通地圖",
             "error_title": "出了點狀況...",
-            "error_content": "表單現在發生一些問題，請稍後再試試，如果情況一直發生，請直接聯絡我們，謝謝！"
+            "error_content": "表單現在發生一些問題，請稍後再試試，如果情況一直發生，請直接聯絡我們，謝謝！",
+            "error_report": "回報問題"
         },
         "validation": {
             "name": "X 姓名不能為空白",
@@ -50,7 +53,7 @@
             "previous": "< 上一頁",
             "next": "下一頁 >",
             "button_finish": "完成填寫",
-            "button_home": "回主頁"
+            "button_home": "完成填寫"
         }
     }
 }

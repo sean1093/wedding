@@ -26,6 +26,21 @@ const StyleLink = styled(Link)`
     }
 `;
 
+const StyleOuterLink = styled.a`
+    text-decoration: none;
+    color: ${color.primary};
+    padding: 16px;
+    width: auto;
+
+    &:hover {
+        background-color: ${color.primary};
+        color: white;
+    }
+    @media (max-width: 576px) {
+        width: 100vw;
+    }
+`;
+
 const StyledTitle = styled(Text)`
     @media (max-width: 768px) {
         font-size: 20px;
@@ -62,6 +77,19 @@ const MobileMenu = styled(Flex)`
     }
 `;
 
+const MenuItems = () => (
+    <>
+        <StyleLink to={PAGE.MAIN.PATH}>{content.header.home}</StyleLink>
+        <StyleOuterLink
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/sean1093/wedding"
+        >
+            {content.header.report}
+        </StyleOuterLink>
+    </>
+);
+
 const Header = ({ service }) => {
     const [showMenu, setShowMenu] = useState(false);
     const onClickMenu = () => {
@@ -82,9 +110,7 @@ const Header = ({ service }) => {
                 {service === PAGE.REGISTER.KEY && (
                     <>
                         <NormalMenu>
-                            <StyleLink to={PAGE.MAIN.PATH}>
-                                {content.header.home}
-                            </StyleLink>
+                            <MenuItems />
                         </NormalMenu>
                         <MobileMenu>
                             <MenuIcon
@@ -96,9 +122,7 @@ const Header = ({ service }) => {
                 )}
                 {showMenu && service === PAGE.REGISTER.KEY && (
                     <Menu>
-                        <StyleLink to={PAGE.MAIN.PATH}>
-                            {content.header.home}
-                        </StyleLink>
+                        <MenuItems />
                     </Menu>
                 )}
             </Flex>

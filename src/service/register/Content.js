@@ -9,6 +9,11 @@ import Input, { StyleTextarea } from '../../components/Input';
 import Flex from '../../components/Flex';
 import Text from '../../components/Text';
 import Image from '../../components/Image';
+import {
+    ReportButton,
+    LinkOuterButton,
+    LinkButton
+} from '../../components/Button';
 
 import {
     RELATION,
@@ -19,6 +24,7 @@ import {
     CHILD
 } from '../../config/register';
 import { color } from '../../config/theme';
+import { PAGE } from '../../config/common';
 import { validateTel } from '../../utils/validation';
 
 import content from '../../assets/content.json';
@@ -259,7 +265,9 @@ const Content = ({ page, answer, setAnswer }) => {
                                 value={VEGETARIAN.find(
                                     (r) => r.value === vegetarian
                                 )}
-                                options={VEGETARIAN}
+                                options={VEGETARIAN.filter(
+                                    (v) => v.value <= people
+                                )}
                                 onChange={onSelect}
                             />
                         </InputField>
@@ -272,7 +280,7 @@ const Content = ({ page, answer, setAnswer }) => {
                             <StyledSelect
                                 name="child"
                                 value={CHILD.find((r) => r.value === child)}
-                                options={CHILD}
+                                options={CHILD.filter((v) => v.value <= people)}
                                 onChange={onSelect}
                             />
                         </InputField>
@@ -392,16 +400,31 @@ const Content = ({ page, answer, setAnswer }) => {
                             boxShadow="0px 0px 8px black"
                         />
                     </Flex>
+                    <Flex justify="center" width="inherit" padding="24px 0">
+                        <LinkOuterButton
+                            href="https://goo.gl/maps/EC4ipx7EXpMspT7x7"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {content.register.content.final_map}
+                        </LinkOuterButton>
+                        <LinkButton to={PAGE.MAIN.PATH}>
+                            {content.register.action.button_home}
+                        </LinkButton>
+                    </Flex>
                 </>
             )}
             {page === 5 && (
                 <Flex direction="column">
-                    <Text fontSize="20px" padding="12px">
+                    <Text fontSize="20px" padding="12px" color={color.black}>
                         {content.register.content.error_title}
                     </Text>
-                    <Text fontSize="16px" padding="12px">
+                    <Text fontSize="16px" padding="12px" color={color.black}>
                         {content.register.content.error_content}
                     </Text>
+                    <Box padding="12px">
+                        <ReportButton />
+                    </Box>
                 </Flex>
             )}
         </Flex>
