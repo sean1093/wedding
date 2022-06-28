@@ -9,11 +9,7 @@ import Input, { StyleTextarea } from '../../components/Input';
 import Flex from '../../components/Flex';
 import Text from '../../components/Text';
 import Image from '../../components/Image';
-import {
-    ReportButton,
-    LinkOuterButton,
-    LinkButton
-} from '../../components/Button';
+import { ReportButton, LinkOuterButton } from '../../components/Button';
 
 import {
     RELATION,
@@ -24,7 +20,6 @@ import {
     CHILD
 } from '../../config/register';
 import { color } from '../../config/theme';
-import { PAGE } from '../../config/common';
 import { validateTel } from '../../utils/validation';
 
 import content from '../../assets/content.json';
@@ -269,6 +264,7 @@ const Content = ({ page, answer, setAnswer }) => {
                                     (v) => v.value <= people
                                 )}
                                 onChange={onSelect}
+                                isDisabled={people === undefined}
                             />
                         </InputField>
                     </InputBlock>
@@ -282,6 +278,7 @@ const Content = ({ page, answer, setAnswer }) => {
                                 value={CHILD.find((r) => r.value === child)}
                                 options={CHILD.filter((v) => v.value <= people)}
                                 onChange={onSelect}
+                                isDisabled={people === undefined}
                             />
                         </InputField>
                     </InputBlock>
@@ -408,9 +405,6 @@ const Content = ({ page, answer, setAnswer }) => {
                         >
                             {content.register.content.final_map}
                         </LinkOuterButton>
-                        <LinkButton to={PAGE.MAIN.PATH}>
-                            {content.register.action.button_home}
-                        </LinkButton>
                     </Flex>
                 </>
             )}

@@ -12,14 +12,6 @@ export const RELATION = [
     {
         label: content.register.content.relation_2,
         value: 2
-    },
-    {
-        label: content.register.content.relation_3,
-        value: 3
-    },
-    {
-        label: content.register.content.relation_4,
-        value: 4
     }
 ];
 
