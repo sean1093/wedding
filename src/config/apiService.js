@@ -1,2 +1,2 @@
 export const API_HOST =
-    'https://script.google.com/macros/s/AKfycbw-RgNmZWFrk9uwJKBIk2iw5ZB8S9mi2MISiLkUNT8XMFxa5z7TuvTI9nhhdmSJsTT6/exec';
+    'https://script.google.com/macros/s/AKfycbz4OndkEsASjB8lViMIhk5BJ6ozCmhoCJgOVtAsMXBU25gpejv7O2DlJy5aRKFA94M/exec';
